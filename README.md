@@ -171,3 +171,7 @@ npm install -g @angular/cli@20.3.24
 * Install Angular CLI
 * Verify using `ng v`
 * Create and run Angular app
+
+## login credentials
+Frontend login - admin@gmail.com
+Password -123456
