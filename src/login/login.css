@@ -1,0 +1,79 @@
+/* Full screen gradient animation */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(-45deg, #667eea, #764ba2, #6a11cb, #2575fc);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
+
+/* Animation keyframes */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Login card */
+.login-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+
+  padding: 40px;
+  border-radius: 16px;
+  width: 320px;
+  text-align: center;
+
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+/* Title */
+.login-card h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+.subtitle {
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.input-group {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #ff7a18;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff5722;
+}
+
+/* Error */
+.error {
+  color: #ff4d4d;
+  margin-top: 10px;
+}

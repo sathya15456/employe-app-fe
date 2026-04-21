@@ -1,0 +1,25 @@
+<div class="login-container">
+    <div class="login-card">
+        <h2>Welcome Admin</h2>
+        <p class="subtitle">Login to continue</p>
+        <form [formGroup]="form" (ngSubmit)="login()">
+            <div class="input-group">
+                <input type="email" placeholder="Enter your Mail id" formControlName="email">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" formControlName="password">
+            </div>
+            <button type="submit" [disabled]="form.invalid || loading">
+                {{loading?'Logging in...':'Login'}}
+
+            </button>
+
+        </form>
+        <div *ngIf="errorMsg" class="error">
+            {{errorMsg}}
+
+        </div>
+
+    </div>
+
+</div>

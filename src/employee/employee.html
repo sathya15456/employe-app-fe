@@ -1,0 +1,51 @@
+<div class="container">
+
+  <h2>Employees</h2>
+
+  <input [formControl]="search" placeholder="Search..." />
+
+  <button (click)="add()">Add Employee</button>
+
+  <div *ngIf="loading">Loading...</div>
+
+  <table *ngIf="!loading && employees?.length">
+    <tr>
+      <th (click)="sort('name')" style="cursor: pointer;">
+        Name {{ sortBy === 'name' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
+      </th>
+      <th (click)="sort('email')" style="cursor: pointer;">
+        Email {{ sortBy === 'email' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
+      </th>
+      <th (click)="sort('role')" style="cursor: pointer;">
+        Role {{ sortBy === 'role' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
+      </th>
+      <th (click)="sort('joiningDate')" style="cursor: pointer;">
+        Date {{ sortBy === 'joiningDate' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
+      </th>
+      <th>Actions</th>
+    </tr>
+
+    <tr *ngFor="let e of employees">
+      <td>{{e.name}}</td>
+      <td>{{e.email}}</td>
+      <td>{{e.role}}</td>
+      <td>{{e.joiningDate | date:'dd/MM/yyyy' }}</td>
+      <td>
+        <button (click)="edit(e)">Edit</button>
+        <button (click)="delete(e._id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+
+  <div *ngIf="!loading && !employees.length">
+    No employees found
+  </div>
+<div class="paginator-wrapper">
+  <mat-paginator
+    [length]="totalitems"
+    [pageSize]="limit"
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</div>
+</div>

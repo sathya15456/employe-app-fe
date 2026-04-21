@@ -1,0 +1,28 @@
+<h2>{{ isEdit ? 'Edit' : 'Add' }} Employee</h2>
+
+<div *ngIf="loading" class="form-loading">
+  <mat-spinner diameter="40" color="accent"></mat-spinner>
+  <p>Loading...</p>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="submit()" *ngIf="!loading">
+
+  <input formControlName="name" placeholder="Name">
+  <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+    Name required
+  </div>
+
+  <input formControlName="email" placeholder="Email">
+  <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+    Valid email required
+  </div>
+
+  <input formControlName="role" placeholder="Role">
+
+  <input type="date" formControlName="joiningDate">
+
+  <button type="submit" [disabled]="form.invalid || loading">
+    {{ loading ? 'Saving...' : 'Save' }}
+  </button>
+
+</form>
